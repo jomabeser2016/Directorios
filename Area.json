@@ -1,0 +1,31 @@
+﻿{
+  "Area": {
+    "Area": [
+      {
+        "valor": "",
+        "texto": ""
+      },
+       
+      {
+        "valor": "Administracion",
+        "texto": "Administracion"
+      },
+      {
+        "valor": "Logistica",
+        "texto": "Logistica"
+      },
+      {
+        "valor": "Contabilidad",
+        "texto": "Contabilidad"
+      },
+      {
+        "valor": "Sistemas",
+        "texto": "Sistemas"
+      },
+      {
+        "valor": "Tesoreria",
+        "texto": "Tesoreria"
+      }
+    ]
+  }
+}
