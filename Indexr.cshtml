@@ -1,0 +1,96 @@
+﻿@model EjemploMVC.Models.ConsultaPersona
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section JavaScript{
+    <script type="text/javascript">
+        var requrlListarPersonas = '@Url.Action("ListarPersonas", "Home")';
+        var requrlRegistroPersona = '@Url.Action("Index", "RegistroPersona")';
+        var requrlError = '@Url.Action("Error400", "Error")';
+    </script>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/view/ConsultaPersona.js")"></script>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>Registro de Personas</h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i> Home</a></li>        
+        <li class="active">Registro de Personas</li>
+    </ol>
+</section>
+
+<section class="content">
+    
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmBuscarPersona" }))
+{
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Criterios de Búsqueda</h3>
+            <div class="box-tools">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+         
+        <div class="box-body">
+
+            @*@Html.AntiForgeryToken()*@
+            @*<input id="hdToken" type="hidden" value="@ViewBag.AntiForgeryToken" name="__RequestVerificationToken" />*@
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-12">
+
+                        <div class="col-md-1">
+                            @Html.LabelFor(x => x.vNomPer, new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.EditorFor(x => x.vNomPer, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese el Nombre..." } })                            
+                        </div>  
+                        
+                        <div class="col-md-1">
+                            @Html.LabelFor(x => x.vSexo, new { @class = "control-label" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(x => x.vSexo, Model.vSexo, new { @class = "form-control", placeholder = "Seleccione...", id = "vSexo" })
+                        </div>  
+                                                                                          
+                        </div>   
+                    
+                </div>
+                <!-- /.form-group -->
+            </div>
+
+        </div>
+        <!-- /.box-body -->
+
+        <div class="box-footer">
+            <a href="#" id="btnBuscar" class="btn btn-primary pull-right">Buscar</a>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <div class="box-tools">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+                <div class="btn-group">
+                    <a href="#" id="btnNuevo" class="btn btn-default"><i class="fa fa-file-o"></i></a>                    
+                </div>
+            </div>
+        </div>
+        <div class="box-body table-responsive">
+            <table id="grdPersona"></table>
+            <div id="pagePersona"></div>
+        </div>
+    </div>
+}    
+</section>

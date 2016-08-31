@@ -1,0 +1,15 @@
+﻿{
+  "Sexo": {
+    "Sexo": [
+      	{"valor" :"","texto" :""},
+      { 
+        "valor": "M",
+        "texto": "Masculino"
+      },
+      {
+        "valor": "F",
+        "texto": "Femenino"
+      }
+    ]
+  }
+}
